@@ -1,0 +1,67 @@
+*{
+    box-sizing: border-box; 
+     
+}
+header{
+    text-align:center;
+    display: block 
+}
+
+main{
+    float: left;
+    display: flex; /*Esto indica que los elementos del main tendrán display flex*/
+    flex-direction: row wrap; 
+    justify-content: center; 
+}
+
+section{
+     /*Para que termine sirviendo lo de inline*/
+    width: 40%;  
+}
+
+.izquierdo{
+    width: 100%;
+    color: white; 
+    background-color:#318369;
+    font-size: 23px;
+}
+
+.derecho{
+    width: 100%;
+    color: white;
+    background-color: #4C4D4D;
+    font-size: 23px;
+}
+
+span{
+    font-style:italic; 
+}
+
+.nombreAzul{
+    color: #3CA885; 
+    font-weight: bold;
+}
+
+h1{
+    font-size: 31px;
+}
+
+#nombreGris{
+    font-style: normal;
+    color: #494949; 
+}
+
+address{
+    background-color: #4C4D4D;
+    color: white; 
+}
+
+a{
+    background-color: #4C4D4D;
+    color: white;  
+}
+
+*{
+    background-color: #CDCFCF;
+    font-family: Arial, Helvetica, sans-serif;
+}
