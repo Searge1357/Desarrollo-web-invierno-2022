@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.logo > img {
+  width: 50px;
+}
+
+@media (max-width: 767px){
+  *{
+    display: flex; 
+    flex-direction: column;
+  }
+
+  title{
+    display: none;
+  }
+
+  header{
+    margin-top: 20px;
+    align-items: center;
+  }
+
+  main{
+    align-items: center;
+  }
+
+  .menu{
+    display: none;
+  }
+
+  nav{
+    background-color: gray;
+    align-items: flex-end;
+    margin-left: 30px;
+    margin-right: 10px;
+  }
+
+  .product{
+    align-items: center;
+    border-color: gray;
+    border-style: solid;
+    border-width: 2px;
+    margin: 10px 10px 10px 10px ;
+  }
+  
+  p{
+    text-align: center;
+  }
+
+  ul{
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+  *{
+    display: flex;
+    flex-direction: column; /*No entiendo porque si no pongo esto
+    no funciona el ul*/
+  }
+
+  title{
+    display: none;
+  }
+
+  body{ /*Así todos los contenedores principales los pongo en columnas*/
+  /*Aquí no centro todo, porque si no también se centra l nav*/  
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  header{ /*Todo dentro del header estará en row wrap y centrado*/
+    margin-top: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .logo{
+    margin-right: 50px;
+  }
+
+  .menu{
+    display: none;
+  }
+
+  nav{
+    background-color: gray;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin: 10px 20px 10px 20px;
+  }
+
+  main{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  section{
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+
+  }
+
+  .product{
+    border-color: lightgrey;
+    border-style: solid;
+    border-width: 2px;
+  }
+
+  p{
+    text-align: center;
+  }
+
+  ul{
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .hamburger{
+    color: white;
+  }
+
+}
+
+@media (min-width: 1025px){
+  *{
+    display: flex;
+  }
+
+  body{
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
+  title{
+    display: none;
+  }
+
+  header{
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .logo{
+    margin-right: 50px;
+  }
+
+  .hamburger{
+    display: none;
+  }
+
+  nav{
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: gray;
+    margin: 30px 0 30px 0; /*arriba abajo derecha izquierda*/
+  }
+
+  .menu > li{
+    padding-right: 30px;
+    color: white
+  }
+
+  .product{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  p{
+    text-align: center;
+  }
+
+  footer{
+    flex-direction: column; 
+    /*Ya entiendo porque esto, porque las listas están ordenadas hacia abajo, 
+    entonces para que se expandan lo pones como columna para que se ordenen a los lados*/
+  }
+
+  ul{
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
