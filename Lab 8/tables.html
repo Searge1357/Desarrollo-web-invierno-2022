@@ -8,6 +8,7 @@
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/styles/style.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
@@ -76,10 +77,12 @@ $(document).ready(function(){
       for(let i=0; i < data.length; i++){
         let datosMesa = $("<ul class = 'mesa'>")
         datosMesa.html(`
+        <div class="tarjeta">
         <div class='numMesa'><h2>Mesa ${i+1}</h2></div><br>
         <h2>Nombre: ${data[i].nombre}</h2><br>
         <h2>Teléfono: ${data[i].tel}</h2><br>
         <h2>Email: ${data[i].email}</h2><br>
+        </div>
         `)
         $("#tableList").append(datosMesa)
       }
@@ -91,10 +94,12 @@ $(document).ready(function(){
       for(let i=0; i < data.length; i++){
         let datosMesa = $("<ul class = 'mesa'>")
         datosMesa.html(`
+        <div class="tarjeta">
         <div class='numMesa'><h2>No. en lista de espera: ${i+1}</h2></div><br>
         <h2>Nombre: ${data[i].nombre}</h2><br>
         <h2>Teléfono: ${data[i].tel}</h2><br>
         <h2>Email: ${data[i].email}</h2><br>
+        </div>
         `)
         $("#waitList").append(datosMesa)
       }
@@ -102,6 +107,15 @@ $(document).ready(function(){
   })
 })
 
+$("#clear").on("click", function(){
+  alert("Clearing...")
+  $("#tableList").empty()
+  $("waitList").empty()
+  $.post("/api/clear", function(data){
+    //No se borrará todo a menos que de refresh, entonces haré esto
+    console.log(data)
+  })
+})
 
 
 </script>

@@ -1,0 +1,15 @@
+.tarjeta{
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-right: 20px;
+    margin-bottom: 25px;
+}
+
+.numMesa{
+    border-bottom: grey;
+    border-bottom-style: solid;
+    border-width: 2px;
+}

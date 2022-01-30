@@ -3,6 +3,9 @@ let path = require("path")
 
 let app = express()
 
+//Donde cargar los archivos estáticos
+app.use(express.static('public'))
+
 //Para codificar Json así puede escribir y recibir Json
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -26,6 +29,11 @@ app.get("/api/tables", (req,res)=>{
     return res.json(mesas)
 })
 
+app.post("/api/clear", (req,res)=>{
+    mesas = []
+    listaEspera = []
+})
+
 app.get("/reserve", (req,res)=>{
     //res.json(mesas)
     res.sendFile(path.join(__dirname, "reserve.html"))
@@ -46,7 +54,7 @@ app.post("/api/reserve", (req,res)=>{
 })
 
 app.get("/api/waitlist", (req,res)=>{
-    res.json(listaEspera)
+    return res.json(listaEspera)
 })
 
 app.listen(3000, ()=>{
