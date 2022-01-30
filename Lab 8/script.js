@@ -7,13 +7,9 @@ let app = express()
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-var mesas = [
-    {
-        nombre: "Sergio", 
-        tel: "8137583036",
-        email: "prueba@example.com"
-    }
-]
+var mesas = []
+
+var listaEspera = []
 
 app.get("/", (req,res)=>{
     //res.send("EL SERVIDOR FUNCIONA") //No puedo poner esto, porque envía dos cosas a la vez
@@ -26,9 +22,17 @@ app.get("/tables", (req,res)=>{
     res.sendFile(path.join(__dirname, "tables.html"))
 })
 
+app.get("/api/tables", (req,res)=>{
+    res.json(mesas)
+})
+
 app.get("/reserve", (req,res)=>{
     //res.json(mesas)
     res.sendFile(path.join(__dirname, "reserve.html"))
+})
+
+app.get("/api/reserve", (req,res)=>{
+    res.json(listaEspera)
 })
 
 app.post("/reserve", (req,res)=>{
