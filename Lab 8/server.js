@@ -59,6 +59,6 @@ app.get("/api/waitlist", (req,res)=>{
     return res.json(listaEspera)
 })
 
-app.listen(3000, ()=>{
-    console.log("Servidor funcionando en el puerto 3000")
+app.listen(PORT, ()=>{
+    console.log("App listening on PORT: ", PORT)
 })
