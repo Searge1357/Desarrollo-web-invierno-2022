@@ -23,11 +23,12 @@ app.get("/", (req,res)=>{
 })
 
 app.get("/tables", (req,res)=>{
-
+    res.sendFile(path.join(__dirname, "tables.html"))
 })
 
 app.get("/reserve", (req,res)=>{
-    return res.json(mesas)
+    //res.json(mesas)
+    res.sendFile(path.join(__dirname, "reserve.html"))
 })
 
 app.post("/reserve", (req,res)=>{
