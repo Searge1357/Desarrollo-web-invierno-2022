@@ -100,8 +100,18 @@ $("body").on("click", "#botonSubmit", function(event){
     tel: $("#reserve-phone").val().trim(), 
     email: $("#reserve-email").val().trim(),
   }
+  
+  //Aquí borro los datos manualmente, sin permitir que la página haga refresh
+  $("#reserve-name").val("")
+  $("#reserve-phone").val("")
+  $("#reserve-email").val("")
 
-  $.post("/reserve", reservacion) //Con esto mando el objeto al link para que le haga post
+  /*$.get("/api/tables", function(data){
+    console.log("Sí entra")
+    console.log(data)
+  })*/
+
+  $.post("/api/reserve", reservacion) //Con esto mando el objeto al link para que le haga post
   .then(function(data){ //Si la conexión es correcta entrará aquí
     console.log(data)
     alert("Realizando reservación")

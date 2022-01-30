@@ -23,7 +23,7 @@ app.get("/tables", (req,res)=>{
 })
 
 app.get("/api/tables", (req,res)=>{
-    res.json(mesas)
+    return res.json(mesas)
 })
 
 app.get("/reserve", (req,res)=>{
@@ -31,15 +31,22 @@ app.get("/reserve", (req,res)=>{
     res.sendFile(path.join(__dirname, "reserve.html"))
 })
 
-app.get("/api/reserve", (req,res)=>{
-    res.json(listaEspera)
+app.post("/api/reserve", (req,res)=>{
+    let mesaNueva = req.body //Con esto recupero lo que se introduce
+    //console.log(mesaNueva)
+    if (mesas.length < 5 ){
+        mesas.push(mesaNueva)
+        res.send({title: "true"}) //Ocupo responder algo para que continúe con los procesos
+    }
+    else{
+        listaEspera.push(mesaNueva)
+        res.json(false)
+    }
+    //res.json(mesas) //Para que vuelva a publicar el api
 })
 
-app.post("/reserve", (req,res)=>{
-    let mesaNueva = req.body //Con esto recupero lo que se introduce
-    console.log(mesaNueva)
-    mesas.push(mesaNueva)
-    res.json(mesas) //Para que vuelva a publicar el api
+app.get("/api/waitlist", (req,res)=>{
+    res.json(listaEspera)
 })
 
 app.listen(3000, ()=>{
