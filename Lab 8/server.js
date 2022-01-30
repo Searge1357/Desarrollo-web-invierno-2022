@@ -10,6 +10,8 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+var PORT = process.env.PORT || 3000; 
+
 var mesas = []
 
 var listaEspera = []
