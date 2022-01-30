@@ -70,7 +70,37 @@
 
 <!-- BELOW CODE IS CRITICAL. IT HANDLES HOW FORM DATA IS LOADED FROM OUR SERVER -->
 <script type="text/javascript">
+$(document).ready(function(){
+  $.get("/api/tables", function(data){
+    if(data.length > 1){
+      for(let i=0; i < data.length; i++){
+        let datosMesa = $("<ul class = 'mesa'>")
+        datosMesa.html(`
+        <div class='numMesa'><h2>Mesa ${i+1}</h2></div><br>
+        <h2>Nombre: ${data[i].nombre}</h2><br>
+        <h2>Teléfono: ${data[i].tel}</h2><br>
+        <h2>Email: ${data[i].email}</h2><br>
+        `)
+        $("#tableList").append(datosMesa)
+      }
+    } 
+  })
 
+  $.get("/api/waitlist", function(data){
+    if(data.length > 1){
+      for(let i=0; i < data.length; i++){
+        let datosMesa = $("<ul class = 'mesa'>")
+        datosMesa.html(`
+        <div class='numMesa'><h2>No. en lista de espera: ${i+1}</h2></div><br>
+        <h2>Nombre: ${data[i].nombre}</h2><br>
+        <h2>Teléfono: ${data[i].tel}</h2><br>
+        <h2>Email: ${data[i].email}</h2><br>
+        `)
+        $("#waitList").append(datosMesa)
+      }
+    } 
+  })
+})
 
 
 
