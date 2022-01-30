@@ -90,7 +90,7 @@ $(document).ready(function(){
   })
 
   $.get("/api/waitlist", function(data){
-    if(data.length > 1){
+    if(data.length > 0){
       for(let i=0; i < data.length; i++){
         let datosMesa = $("<ul class = 'mesa'>")
         datosMesa.html(`
@@ -110,7 +110,7 @@ $(document).ready(function(){
 $("#clear").on("click", function(){
   alert("Clearing...")
   $("#tableList").empty()
-  $("waitList").empty()
+  $("#waitList").empty()
   $.post("/api/clear", function(data){
     //No se borrará todo a menos que de refresh, entonces haré esto
     console.log(data)

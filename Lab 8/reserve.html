@@ -114,7 +114,14 @@ $("body").on("click", "#botonSubmit", function(event){
   $.post("/api/reserve", reservacion) //Con esto mando el objeto al link para que le haga post
   .then(function(data){ //Si la conexión es correcta entrará aquí
     console.log(data)
-    alert("Realizando reservación")
+    $.get("/api/waitlist", function(data){
+      if(data.length == 0){
+        alert("Mesa reservada")
+      }
+      else{
+        alert("Lo sentimos, no hay mesa disponible. Se te agregó a la lista de espera")
+      }
+    })
   })
   .catch(function(){ //Aquí entra si no se puede meter al link
     alert("Página incorrecta")
